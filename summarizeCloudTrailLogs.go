@@ -108,7 +108,7 @@ func getCloudTrailLog(file *os.File, svc *s3.S3, bucket string, key string, file
 	for _, record := range records {
 		// if errors exist, ignore it
 		eventTime, _ := record.GetString("eventTime")
-		OperationUser, _ := record.GetString("userIdentity", "principalId")
+		OperationUser, _ := record.GetString("userIdentity", "arn")
 		eventSource, _ := record.GetString("eventSource")
 		eventName, _ := record.GetString("eventName")
 		awsRegion, _ := record.GetString("awsRegion")
